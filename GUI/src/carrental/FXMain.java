@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Jack
+ * @author Basel, Duy, Jacob, Ismail
  */
 public class FXMain extends Application {
     

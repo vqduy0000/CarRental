@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Jack
+ * @author Basel, Duy, Jacob, Ismail
  */
 public class StartScreenController implements Initializable {
 

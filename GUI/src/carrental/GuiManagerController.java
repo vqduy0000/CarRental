@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Jack
+ * @author Basel, Duy, Jacob, Ismail
  */
 public class GuiManagerController implements Initializable {
 
