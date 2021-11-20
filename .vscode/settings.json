@@ -1,0 +1,23 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "GUI/lib/mariadb-java-client-2.7.4.jar",
+        "GUI/lib/javafx.base.jar",
+        "GUI/lib/javafx.controls.jar",
+        "GUI/lib/javafx.fxml.jar",
+        "GUI/lib/javafx.graphics.jar",
+        "GUI/lib/javafx.media.jar",
+        "GUI/lib/javafx.swing.jar",
+        "GUI/lib/javafx.web.jar",
+        "GUI/lib/javafx-swt.jar",
+        "GUI/jars/javafx.base.jar",
+        "GUI/jars/javafx.controls.jar",
+        "GUI/jars/javafx.fxml.jar",
+        "GUI/jars/javafx.graphics.jar",
+        "GUI/jars/javafx.media.jar",
+        "GUI/jars/javafx.swing.jar",
+        "GUI/jars/javafx.web.jar",
+        "GUI/jars/javafx-swt.jar",
+        "GUI/jars/mariadb-java-client-2.7.4.jar"
+    ]
+}
