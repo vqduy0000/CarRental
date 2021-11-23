@@ -12,6 +12,13 @@
    <children>
       <Label layoutX="53.0" layoutY="30.0" text="Office location" />
       <TextField layoutX="45.0" layoutY="61.0" prefHeight="25.0" prefWidth="510.0" promptText="Search" />
+      <Label layoutX="53.0" layoutY="359.0" text="Chosen car" />
+      <TextField layoutX="130.0" layoutY="355.0" prefHeight="25.0" prefWidth="87.0" />
+      <Button layoutX="229.0" layoutY="355.0" mnemonicParsing="false" text="Rent" />
+      <Button layoutX="515.0" layoutY="355.0" mnemonicParsing="false" text="Return car" />
+      <Label layoutX="286.0" layoutY="359.0" text="Current car" />
+      <TextField layoutX="353.0" layoutY="355.0" />
+      <ChoiceBox fx:id="choiceCity" layoutX="142.0" layoutY="26.0" prefHeight="25.0" prefWidth="65.0" />
       <TableView layoutX="45.0" layoutY="103.0" prefHeight="245.0" prefWidth="510.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Brand" />
@@ -26,12 +33,5 @@
             <TableColumn prefWidth="75.0" text="Rent" />
         </columns>
       </TableView>
-      <Label layoutX="53.0" layoutY="359.0" text="Chosen car" />
-      <TextField layoutX="130.0" layoutY="355.0" prefHeight="25.0" prefWidth="87.0" />
-      <Button layoutX="229.0" layoutY="355.0" mnemonicParsing="false" text="Rent" />
-      <Button layoutX="515.0" layoutY="355.0" mnemonicParsing="false" text="Return car" />
-      <Label layoutX="286.0" layoutY="359.0" text="Current car" />
-      <TextField layoutX="353.0" layoutY="355.0" />
-      <ChoiceBox fx:id="choiceCity" layoutX="142.0" layoutY="26.0" prefHeight="25.0" prefWidth="65.0" />
    </children>
 </AnchorPane>
