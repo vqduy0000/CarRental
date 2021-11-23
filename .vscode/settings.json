@@ -18,6 +18,7 @@
         "GUI/jars/javafx.swing.jar",
         "GUI/jars/javafx.web.jar",
         "GUI/jars/javafx-swt.jar",
-        "GUI/jars/mariadb-java-client-2.7.4.jar"
+        "GUI/jars/mariadb-java-client-2.7.4.jar",
+        "GUI/jars/mysql-connector-java-8.0.27.jar"
     ]
 }

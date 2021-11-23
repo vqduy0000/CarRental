@@ -8,6 +8,8 @@ package carrental;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import db.DBconnector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +49,7 @@ public class StartScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        DBconnector.connect();
     }    
 
     @FXML
