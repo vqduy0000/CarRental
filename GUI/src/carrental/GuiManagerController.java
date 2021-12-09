@@ -51,7 +51,7 @@ public class GuiManagerController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show(); 
-        }
+    }
 
     @FXML
     private void openEmployeeScreen(ActionEvent event) throws IOException{

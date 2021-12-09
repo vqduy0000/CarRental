@@ -56,6 +56,13 @@ public class StartScreenController implements Initializable {
     }    
 
     //adding sign-up button functionality from start screen cause same problem with sign-up button.
+    @FXML
+    private void openSignUpScreen(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/SignUp.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
 
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException{
