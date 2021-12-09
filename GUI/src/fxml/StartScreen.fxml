@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.StartScreenController">
    <children>
-      <Button fx:id="btnLogin" layoutX="321.0" layoutY="223.0" mnemonicParsing="false" text="Log in" />
+      <Button fx:id="btnLogin" layoutX="321.0" layoutY="223.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log in" />
       <Button fx:id="btnSignup" layoutX="251.0" layoutY="223.0" mnemonicParsing="false" text="Sign up" />
       <Label fx:id="lblUsername" layoutX="155.0" layoutY="152.0" text="Username" />
       <Label fx:id="lblPassword" layoutX="157.0" layoutY="192.0" text="Password" />

@@ -7,10 +7,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.SignUpController">
    <children>
-      <TextField layoutX="56.0" layoutY="67.0" prefHeight="25.0" prefWidth="89.0" promptText="First name*" />
-      <TextField layoutX="250.0" layoutY="67.0" prefHeight="25.0" prefWidth="89.0" promptText="Last name*" />
+      <TextField fx:id="firstNameTextField" layoutX="56.0" layoutY="67.0" prefHeight="25.0" prefWidth="89.0" promptText="First name*" />
+      <TextField fx:id="lastNameTextField" layoutX="250.0" layoutY="67.0" prefHeight="25.0" prefWidth="89.0" promptText="Last name*" />
       <TextField layoutX="154.0" layoutY="67.0" prefHeight="25.0" prefWidth="89.0" promptText="Middle name" />
-      <TextField layoutX="56.0" layoutY="108.0" promptText="MM/DD/YYYY*" />
+      <TextField fx:id="birthDateTextField" layoutX="56.0" layoutY="108.0" promptText="MM/DD/YYYY*" />
       <TextField layoutX="56.0" layoutY="143.0" promptText="Gender" />
       <TextField layoutX="56.0" layoutY="185.0" promptText="Email" />
       <TextField layoutX="224.0" layoutY="185.0" promptText="example.com" />
@@ -21,9 +21,10 @@
       <TextField layoutX="216.0" layoutY="257.0" prefHeight="25.0" prefWidth="55.0" promptText="City" />
       <TextField layoutX="56.0" layoutY="290.0" prefHeight="25.0" prefWidth="49.0" promptText="State" />
       <TextField layoutX="122.0" layoutY="290.0" prefHeight="25.0" prefWidth="55.0" promptText="Zip" />
-      <TextField layoutX="210.0" layoutY="25.0" promptText="Password" />
-      <TextField layoutX="55.0" layoutY="25.0" prefHeight="25.0" prefWidth="131.0" promptText="Username" />
+      <TextField fx:id="passwordField" layoutX="210.0" layoutY="25.0" promptText="Password" />
+      <TextField fx:id="usernameTextField" layoutX="55.0" layoutY="25.0" prefHeight="25.0" prefWidth="131.0" promptText="Username" />
       <TextField layoutX="56.0" layoutY="326.0" promptText="Credit card" />
-      <Button layoutX="55.0" layoutY="361.0" mnemonicParsing="false" text="Submit" />
+      <TextField layoutX="56.0" layoutY="326.0" promptText="Person Type" />
+      <Button fx:id="btnSubmit" layoutX="55.0" layoutY="361.0" mnemonicParsing="false" onAction="#submitButtonOnAction" text="Submit" />
    </children>
 </AnchorPane>
