@@ -55,6 +55,8 @@ public class StartScreenController implements Initializable {
         DBconnector.connect();
     }    
 
+    //adding sign-up button functionality from start screen cause same problem with sign-up button.
+
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException{
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/GuiManager.fxml"));
