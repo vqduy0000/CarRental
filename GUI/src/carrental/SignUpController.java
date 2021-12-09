@@ -41,6 +41,19 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField birthDateTextField;
 
+    @FXML
+    private TextField zipTextField;
+
+    @FXML
+    private TextField areaCodeTextField;
+    @FXML
+    private TextField phoneTextField;
+    @FXML
+    private TextField emailIDTextField;
+    @FXML
+    private TextField emailDomainTextField;
+
+
     /**
      * Initializes the controller class.
      */
@@ -52,14 +65,19 @@ public class SignUpController implements Initializable {
     public void submitButtonOnAction(ActionEvent action) {
         Connection connection = DBconnector.connect(); 
         
-        String userName = usernameTextField.getText(); //req
-        String password = passwordField.getText(); //req
+        String userName = usernameTextField.getText();
+        String password = passwordField.getText(); 
         String firstName = firstNameTextField.getText();
         String lastName = lastNameTextField.getText();
         String birthDate = birthDateTextField.getText();
+        String zipCode = zipTextField.getText();
+        String areaCode = areaCodeTextField.getText(); 
+        String phoneNumber = phoneTextField.getText();
+        String emailID = emailIDTextField.getText();
+        String emailDomain = emailDomainTextField.getText();
 
-        String insertFields = "insert into PERSON (PERSON_USERNAME, PERSON_PASSWORD, PERSON_FNAME, PERSON_LNAME, PERSON_DOB, PERSON_TYPE) VALUES ('";
-        String insertValues = userName + "','" + password + "','" + firstName + "','" + lastName + "','" + birthDate + "')";
+        String insertFields = "INSERT INTO PERSON (PERSON_USERNAME, PERSON_PASSWORD, PERSON_FNAME, PERSON_LNAME, PERSON_DOB, PERSON_ZIPCODE, PERSON_AREACODE, PERSON_PHONE,PERSON_EMAILID,PERSON_EMAILDOMAIN) VALUES ('";
+        String insertValues = userName + "','" + password + "','" + firstName + "','" + lastName + "','" + birthDate + "','" + zipCode + "','" + areaCode + "','" + phoneNumber + "','" + emailID + "','" + emailDomain + "')";
         String submit = insertFields + insertValues;
 
         try {
