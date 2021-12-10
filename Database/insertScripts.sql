@@ -14,7 +14,10 @@ values
     ('Oliber', 'Bulberry', null, '445 Real Street', 'Detroit', 'MI', 48202, '1967-04-11', '313', '6768888', 'oblibee11', 'insercure', 'oblibee' ,'gmail.com' ,'M', 'C'),
     ('Olivia', 'Donnavan', null, '707 7th Street', 'Detroit', 'MI', 48205, '1990-01-01', '313', '3139919', 'donnaliv', 'R1ghtpa55w0rd', 'thedonna90' ,'gmail.com' ,'F', 'C');
 
-
+insert into OFFICE (OFFICE_ID, OFFICE_STREET, OFFICE_CITY, OFFICE_STATE, OFFICE_ZIPCODE, OFFICE_AREACODE, OFFICE_PHONE) 
+values 
+	('01', '98701 Major Street', 'Detroit', 'MI', '48222', '313', '9897777');
+    
 insert into CUSTOMER (PERSON_ID, OFFICE_ID, CUSTOMER_CREDITCARD)
 values
 	('1', '01', '9999');
@@ -27,6 +30,4 @@ values
     ('10002', '01', 'Ford', '2021', 'black', '50', 'Pick up', 'AWD', 'M', 'v6', '1', '5125', '700', 'G', '1', null),
     ('10003', '01', 'Tesla', '2020', 'white', '10', 'Sedan', 'FWD', 'A', 'electric', '30718', '10910', '300', 'G', '0', null);
 
-insert into OFFICE (OFFICE_ID, OFFICE_STREET, OFFICE_CITY, OFFICE_STATE, OFFICE_ZIPCODE, OFFICE_AREACODE, OFFICE_PHONE) 
-values 
-	('01', '98701 Major Street', 'Detroit', 'MI', '48222', '313', '9897777');
+
