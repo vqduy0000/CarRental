@@ -23,9 +23,9 @@ insert into CAR ( CAR_ID, OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR,
 CAR_FUEL_EFFICIENCY, CAR_BODYSTYLE, CAR_DRIVETYPE, CAR_TRANSMISSION, 
 CAR_ENGINE, CAR_TRIM, CAR_MILEAGE, CAR_RENT, CAR_CONDITION, CAR_AVAILABILITY, PERSON_ID) 
 values 
-	('10001', '01', 'Toyota', '2020', 'black', '39', 'minivan', 'AWD', 'A', 'v6', '1', '10910', '500', 'G', '0', '00001'),
-    ('10002', '01', 'Ford', '2021', 'black', '50', 'pick', 'AWD', 'M', 'v6', '1', '5125', '700', 'G', '1', null),
-    ('10003', '01', 'Tesla', '2020', 'white', '10', 'sedan', 'FWD', 'A', 'electric', '30718', '10910', '300', 'G', '0', null);
+	('10001', '01', 'Toyota', '2020', 'black', '39', 'Minivan', 'AWD', 'A', 'v6', '1', '10910', '500', 'G', '0', '00001'),
+    ('10002', '01', 'Ford', '2021', 'black', '50', 'Pick up', 'AWD', 'M', 'v6', '1', '5125', '700', 'G', '1', null),
+    ('10003', '01', 'Tesla', '2020', 'white', '10', 'Sedan', 'FWD', 'A', 'electric', '30718', '10910', '300', 'G', '0', null);
 
 insert into OFFICE (OFFICE_ID, OFFICE_STREET, OFFICE_CITY, OFFICE_STATE, OFFICE_ZIPCODE, OFFICE_AREACODE, OFFICE_PHONE) 
 values 
