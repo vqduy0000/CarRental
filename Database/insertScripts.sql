@@ -1,17 +1,18 @@
 use car_rental;
-
+select * from person;
+show databases;
 -- ('', '', '', '', '', '', '', '', '', '', '', '', '' ,'' ,'', '')
-insert into PERSON (PERSON_ID, PERSON_LNAME, PERSON_FNAME, PERSON_MNAME, 
+insert into PERSON (PERSON_LNAME, PERSON_FNAME, PERSON_MNAME, 
 PERSON_STREET, PERSON_CITY, PERSON_STATE, PERSON_ZIPCODE, 
 PERSON_DOB, PERSON_AREACODE, PERSON_PHONE, PERSON_USERNAME, 
 PERSON_PASSWORD, PERSON_EMAILID, PERSON_EMAILDOMAIN, 
 PERSON_GENDER, PERSON_TYPE) 
 values
-	('00001', 'John', 'Doe', null, '12345 1st Street', 'Detroit', 'MI', 48127, '1999-09-11', '313', '4356969', 'jdoe99', '123456', 'jdoe99' ,'gmail.com' ,'M', 'C'),
-    ('00002', 'Jane', 'Doe', 'Joe', '33333 nth Street', 'Houston', 'TX', 77001, '1989-01-17', '281', '6668878', 'jdoe89', 'badpassword', 'jdoe89' ,'yahoo.com' ,'F', 'C'),
-    ('00003', 'Jonathan', 'Wright', 'C', '123 Elm Street', 'Detroit', 'MI', 48201, '1977-12-11', '313', '8779001', 'jonawr1', 'bestpassword', 'jona1977' ,'hotmail.com' ,'M', 'C'),
-    ('00005', 'Oliber', 'Bulberry', null, '445 Real Street', 'Detroit', 'MI', 48202, '1967-04-11', '313', '6768888', 'oblibee11', 'insercure', 'oblibee' ,'gmail.com' ,'M', 'C'),
-    ('00006', 'Olivia', 'Donnavan', null, '707 7th Street', 'Detroit', 'MI', 48205, '1990-01-01', '313', '3139919', 'donnaliv', 'R1ghtpa55w0rd', 'thedonna90' ,'gmail.com' ,'F', 'C');
+	('John', 'Doe', null, '12345 1st Street', 'Detroit', 'MI', 48127, '1999-09-11', '313', '4356969', 'jdoe99', '123456', 'jdoe99' ,'gmail.com' ,'M', 'C'),
+    ('Jane', 'Doe', 'Joe', '33333 nth Street', 'Houston', 'TX', 77001, '1989-01-17', '281', '6668878', 'jdoe89', 'badpassword', 'jdoe89' ,'yahoo.com' ,'F', 'C'),
+    ('Jonathan', 'Wright', 'C', '123 Elm Street', 'Detroit', 'MI', 48201, '1977-12-11', '313', '8779001', 'jonawr1', 'bestpassword', 'jona1977' ,'hotmail.com' ,'M', 'C'),
+    ('Oliber', 'Bulberry', null, '445 Real Street', 'Detroit', 'MI', 48202, '1967-04-11', '313', '6768888', 'oblibee11', 'insercure', 'oblibee' ,'gmail.com' ,'M', 'C'),
+    ('Olivia', 'Donnavan', null, '707 7th Street', 'Detroit', 'MI', 48205, '1990-01-01', '313', '3139919', 'donnaliv', 'R1ghtpa55w0rd', 'thedonna90' ,'gmail.com' ,'F', 'C');
 
 
 insert into CUSTOMER (PERSON_ID, OFFICE_ID, CUSTOMER_CREDITCARD)
