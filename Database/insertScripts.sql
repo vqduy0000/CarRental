@@ -8,7 +8,7 @@ PERSON_DOB, PERSON_AREACODE, PERSON_PHONE, PERSON_USERNAME,
 PERSON_PASSWORD, PERSON_EMAILID, PERSON_EMAILDOMAIN, 
 PERSON_GENDER, PERSON_TYPE) 
 values
-	('John', 'Doe', null, '12345 1st Street', 'Detroit', 'MI', 48127, '1999-09-11', '313', '4356969', 'jdoe99', '123456', 'jdoe99' ,'gmail.com' ,'M', 'C'),
+	('John', 'Doe', null, '12345 1st Street', 'Detroit', 'MI', 48127, '1999-09-11', '313', '4356969', 'jdoe99', '123456', 'jdoe99' ,'gmail.com' ,'M', 'E'),
     ('Jane', 'Doe', 'Joe', '33333 nth Street', 'Houston', 'TX', 77001, '1989-01-17', '281', '6668878', 'jdoe89', 'badpassword', 'jdoe89' ,'yahoo.com' ,'F', 'C'),
     ('Jonathan', 'Wright', 'C', '123 Elm Street', 'Detroit', 'MI', 48201, '1977-12-11', '313', '8779001', 'jonawr1', 'bestpassword', 'jona1977' ,'hotmail.com' ,'M', 'C'),
     ('Oliber', 'Bulberry', null, '445 Real Street', 'Detroit', 'MI', 48202, '1967-04-11', '313', '6768888', 'oblibee11', 'insercure', 'oblibee' ,'gmail.com' ,'M', 'C'),

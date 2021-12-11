@@ -86,6 +86,22 @@ public class StartScreenController implements Initializable {
                 if (result.getInt(1) == 1) {
                     lblUsername.setText("Success!");
                     lblPassword.setText("Success!");
+                    String personTypeSQL = "SELECT PERSON_TYPE FROM PERSON WHERE PERSON_USERNAME = '" + fieldUsername.getText() + "' AND PERSON_PASSWORD='" + fieldPassword.getText() + "'";
+                    Statement statement2 = connection.createStatement();
+                    ResultSet personTypeResult = statement2.executeQuery(personTypeSQL);
+                    while(personTypeResult.next()){
+                    String personType = personTypeResult.getString(1);
+                    if("C".equalsIgnoreCase(personType)) {
+                        Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserView.fxml"));
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    } else if("E".equalsIgnoreCase(personType)) {
+                        Parent root = FXMLLoader.load(getClass().getResource("/fxml/EmpView.fxml"));
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    }}
                 } else {
                     lblUsername.setText("Login Failed");
                     lblPassword.setText("Login Failed");
