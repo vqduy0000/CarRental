@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.EmpViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.EmpViewController">
    <children>
       <Label layoutX="53.0" layoutY="30.0" text="Office location" />
       <MenuButton layoutX="142.0" layoutY="26.0" mnemonicParsing="false" text="Pick a state">
@@ -41,7 +41,7 @@
       <TableView fx:id="tableEmp" layoutX="45.0" layoutY="103.0" prefHeight="245.0" prefWidth="510.0" />
       <Label layoutX="53.0" layoutY="359.0" text="Chosen car:" />
       <Button fx:id="btnRemove" disable="true" layoutX="168.0" layoutY="355.0" mnemonicParsing="false" text="Remove" />
-      <Button fx:id="btnAdd" layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Add" />
+      <Button id="empAdd" fx:id="btnAdd" onAction="#empopenaddView" layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Add" />
       <Button fx:id="btnUpdate" disable="true" layoutX="234.0" layoutY="355.0" mnemonicParsing="false" text="Update" />
       <Label fx:id="lblChosen" layoutX="120.0" layoutY="355.0" prefHeight="25.0" prefWidth="45.0" text="none">
          <font>

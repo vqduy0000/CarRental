@@ -5,6 +5,7 @@
  */
 package carrental;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -28,6 +29,11 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import db.DBconnector;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -94,7 +100,13 @@ public class EmpViewController implements Initializable {
             }
         });
     }    
-    
+    @FXML
+    private void empopenaddView(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show(); }
+        
     public void refreshTable(){
         data = FXCollections.observableArrayList();
         try{

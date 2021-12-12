@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBconnector {
 
-    private static String url = "jdbc:mysql://localhost:3306/car_rental?useOldAliasMetadataBehavior=true";
+    private static String url = "jdbc:mysql://localhost:3306/car_rental";
     private static String username = "root";
     private static String password = ""; //enter your password here
 
