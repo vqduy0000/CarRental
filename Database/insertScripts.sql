@@ -14,11 +14,12 @@ values
 
 insert into OFFICE (OFFICE_ID, OFFICE_STREET, OFFICE_CITY, OFFICE_STATE, OFFICE_ZIPCODE, OFFICE_AREACODE, OFFICE_PHONE) 
 values 
-	('01', '98701 Major Street', 'Detroit', 'MI', '48222', '313', '9897777');
+	('01', '98701 Major Street', 'Detroit', 'MI', '48222', '313', '9897777'),
+    ('02', '89111 New York Street', 'New York City', 'NY', '10009', '212', '9900099');
     
-insert into CUSTOMER (PERSON_ID, OFFICE_ID, CUSTOMER_CREDITCARD)
+insert into CUSTOMER (PERSON_ID, OFFICE_ID)
 values
-	('2', '01', '9999');
+	('2', '01');
     
 insert into CAR (OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR, 
 CAR_FUEL_EFFICIENCY, CAR_BODYSTYLE, CAR_DRIVETYPE, CAR_TRANSMISSION, 

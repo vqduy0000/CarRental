@@ -68,7 +68,8 @@ public class EmpViewController implements Initializable {
                             "left join PERSON " +
                             "on CAR.PERSON_ID = PERSON.PERSON_ID " +
                             "join OFFICE " +
-                            "on OFFICE.OFFICE_ID = CAR.OFFICE_ID";
+                            "on OFFICE.OFFICE_ID = CAR.OFFICE_ID " +
+                            "order by ID asc";
 
                             @FXML
                             private void openAddscreenas(ActionEvent event) throws IOException{
@@ -81,6 +82,10 @@ public class EmpViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         setColumn();
         refreshTable();
+
+        //set up listener to get id associated with select car so further operation can be perform
+        //this id is store in selectedItem and update whenever a new input is detected
+        //also enable button related to data manipulation
         tableEmp.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 selectedItem = (String) tableEmp.getSelectionModel().getSelectedItem().get(0);
@@ -90,7 +95,9 @@ public class EmpViewController implements Initializable {
                 System.out.println(tableEmp.getSelectionModel().getSelectedItem().get(0));
             }
         });
-    }    
+    } 
+    
+    //open addView screen
     @FXML
     private void empopenaddView(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));

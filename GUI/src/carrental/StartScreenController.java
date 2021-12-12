@@ -82,7 +82,7 @@ public class StartScreenController implements Initializable {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         UserViewController controller = loader.getController();
-        controller.initData(customerID);    
+        controller.initData(customerID); //send data to the next controller
         stage.show();
     }
 
