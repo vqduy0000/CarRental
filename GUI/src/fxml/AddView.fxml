@@ -10,13 +10,17 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.AddViewController">
    <children>
       <Label layoutX="24.0" layoutY="42.0" text="Office location" />
-      <MenuButton layoutX="113.0" layoutY="38.0" mnemonicParsing="false" text="Street, City, State">
+      <MenuButton id="locationMenuButton" layoutX="113.0" layoutY="38.0" mnemonicParsing="false" text="Street, City, State">
          <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="98701 Major Street, Detroit, MI" />
             <MenuItem mnemonicParsing="false" text="Action 2" />
          </items>
       </MenuButton>
+<<<<<<< Updated upstream
       <Button id="addScreenAddBtn" layoutX="25.0" layoutY="227.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="25.0" prefWidth="86.0" text="Add" />
+=======
+      <Button id="addscreen" layoutX="25.0" layoutY="227.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="25.0" prefWidth="86.0" text="Add" />
+>>>>>>> Stashed changes
       <TextField id="brandTextField" fx:id="brandTextField" layoutX="25.0" layoutY="80.0" prefHeight="25.0" prefWidth="123.0" promptText="Brand" />
       <TextField id="yearTextField" fx:id="yearTextField" layoutX="166.0" layoutY="80.0" prefHeight="25.0" prefWidth="51.0" promptText="Year" />
       <TextField id="colorTextField" fx:id="colorTextField" layoutX="225.0" layoutY="80.0" prefHeight="25.0" prefWidth="51.0" promptText="Color" />

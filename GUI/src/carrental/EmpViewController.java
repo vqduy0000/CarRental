@@ -16,8 +16,12 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -27,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import db.DBconnector;
 import javafx.event.ActionEvent;
@@ -86,6 +91,13 @@ public class EmpViewController implements Initializable {
                             "left join PERSON " +
                             "on CAR.PERSON_ID = PERSON.PERSON_ID";
 
+                            @FXML
+                            private void openAddscreenas(ActionEvent event) throws IOException{
+                                Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(root));
+                                stage.show(); 
+                            }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setColumn();
