@@ -83,7 +83,7 @@ public class StartScreenController implements Initializable {
     }
 
     public void openEmployeeView (ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/EmployeeView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/EmpView.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
