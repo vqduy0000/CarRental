@@ -40,7 +40,7 @@
       <Button layoutX="480.0" layoutY="61.0" mnemonicParsing="false" text="Search" />
       <TableView fx:id="tableEmp" layoutX="45.0" layoutY="103.0" prefHeight="245.0" prefWidth="510.0" />
       <Label layoutX="53.0" layoutY="359.0" text="Chosen car:" />
-      <Button fx:id="btnRemove" disable="true" layoutX="168.0" layoutY="355.0" mnemonicParsing="false" text="Remove" />
+      <Button id="btnRemove" fx:id="btnRemove" disable="true" layoutX="168.0" layoutY="355.0" mnemonicParsing="false" onAction="#btnRemoveAction" text="Remove" />
       <Button id="empAdd" fx:id="btnAdd" onAction="#empopenaddView" layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Add" />
       <Button fx:id="btnUpdate" disable="true" layoutX="234.0" layoutY="355.0" mnemonicParsing="false" text="Update" />
       <Label fx:id="lblChosen" layoutX="120.0" layoutY="355.0" prefHeight="25.0" prefWidth="45.0" text="none">

@@ -8,7 +8,9 @@ package carrental;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.beans.property.SimpleObjectProperty;
@@ -138,5 +140,22 @@ public class EmpViewController implements Initializable {
             }catch(Exception e){
                 e.printStackTrace();
             }
+    }
+    @FXML
+    private void btnRemoveAction(ActionEvent event)throws IOException{
+        try {
+            Connection c = DBconnector.connect();
+            System.out.println("Connection Successfull");
+            String query = "DELETE FROM CAR WHERE CAR_ID = ?";
+            PreparedStatement stmt = c.prepareStatement(query);
+           stmt.setString(1, selectedItem);
+           int rowCount = stmt.executeUpdate();
+           System.out.println("Deletion sucessful");
+           refreshTable();
+            } catch (SQLException  e) {
+            e.printStackTrace();
+            }catch(Exception exception){
+            exception.printStackTrace();
+                   }
     }
 }
