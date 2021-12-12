@@ -42,23 +42,7 @@ public class EmpViewController implements Initializable {
     private ObservableList<ObservableList> data;
     
     @FXML
-    private TableColumn col_ID;
-    @FXML
-    private TableColumn col_Brand;
-    @FXML
-    private TableColumn col_Year;
-    @FXML
-    private TableColumn col_Mileage;
-    @FXML
-    private TableColumn col_Condition;
-    @FXML
-    private TableColumn col_Avail;
-    @FXML
-    private TableColumn col_Renter;
-
-    @FXML
     private Label lblChosen;
-    
     @FXML
     private Button btnRemove;
     @FXML
@@ -72,13 +56,16 @@ public class EmpViewController implements Initializable {
     Connection c = DBconnector.connect();
 
     private String selectedItem;
-    private String sql = "select CAR_ID as Car, CAR_BRAND as Brand, CAR_YEAR as Year, " +
+    private String sql = "select CAR_ID as ID, CAR_BRAND as Brand, CAR_YEAR as Year, " +
                                 "CAR_MILEAGE as Mileage, CAR_CONDITION as 'Condition', " + 
                                 "CAR_AVAILABILITY as Availability, " +
-                                "concat(PERSON.PERSON_LNAME, \" \", PERSON.PERSON_FNAME) as 'Rented-to' " +
+                                "concat(PERSON.PERSON_LNAME, \" \", PERSON.PERSON_FNAME) as 'Rented-to', " +
+                                "OFFICE.OFFICE_STATE as '  Location  ' " +
                             "from CAR " +
                             "left join PERSON " +
-                            "on CAR.PERSON_ID = PERSON.PERSON_ID";
+                            "on CAR.PERSON_ID = PERSON.PERSON_ID " +
+                            "join OFFICE " +
+                            "on OFFICE.OFFICE_ID = CAR.OFFICE_ID";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

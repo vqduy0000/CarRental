@@ -51,7 +51,6 @@ public class StartScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         DBconnector.connect();
     }
 
@@ -72,16 +71,40 @@ public class StartScreenController implements Initializable {
         stage.show();
     }
 
+    public void openUserView (ActionEvent event, String customerID) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/UserView.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        UserViewController controller = loader.getController();
+        controller.initData(customerID);    
+        stage.show();
+    }
+
+    public void openEmployeeView (ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserView.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     @FXML
     public void loginButtonOnAction(ActionEvent action){
         Connection connection = DBconnector.connect(); 
+        String customerID = "0";
         if(fieldUsername.getText().isBlank() == false && fieldPassword.getText().isBlank() == false) {
         String verifyUser = "SELECT COUNT(1) FROM PERSON WHERE PERSON_USERNAME = '" + fieldUsername.getText() + "' AND PERSON_PASSWORD='" + fieldPassword.getText() + "'";
-
+        String userDetail = "SELECT PERSON_ID FROM PERSON WHERE PERSON_USERNAME = '" + fieldUsername.getText() + "' AND PERSON_PASSWORD='" + fieldPassword.getText() + "'"; 
         try {
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(verifyUser);
+            ResultSet customerDetails = statement.executeQuery(userDetail);
+            
+            while(customerDetails.next())
+            {
+                customerID = customerDetails.getString(1);
+            }
 
+            ResultSet result = statement.executeQuery(verifyUser);
             while(result.next()) {
                 if (result.getInt(1) == 1) {
                     lblUsername.setText("Success!");
@@ -92,15 +115,9 @@ public class StartScreenController implements Initializable {
                     while(personTypeResult.next()){
                     String personType = personTypeResult.getString(1);
                     if("C".equalsIgnoreCase(personType)) {
-                        Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserView.fxml"));
-                        Stage stage = new Stage();
-                        stage.setScene(new Scene(root));
-                        stage.show();
+                        openUserView(action, customerID);
                     } else if("E".equalsIgnoreCase(personType)) {
-                        Parent root = FXMLLoader.load(getClass().getResource("/fxml/EmpView.fxml"));
-                        Stage stage = new Stage();
-                        stage.setScene(new Scene(root));
-                        stage.show();
+                        openEmployeeView(action);
                     }}
                 } else {
                     lblUsername.setText("Login Failed");

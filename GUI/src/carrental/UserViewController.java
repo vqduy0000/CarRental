@@ -5,6 +5,7 @@
  */
 package carrental;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,8 +16,13 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.*;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -26,6 +32,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import db.DBconnector;
 
@@ -40,12 +47,22 @@ public class UserViewController implements Initializable {
      * Initializes the controller class.
      */
     private ObservableList<ObservableList> data;
-
+    @FXML
+    private Label lblID;
+    @FXML
+    private Label lblWarning;
+    @FXML
+    private Button btnReserve;
+    @FXML
+    private Button btnCancel;
+    @FXML
+    private Button btnLogout;
     @FXML
     private TableView<ObservableList> tableUser;
     
     Connection c = DBconnector.connect();
 
+    private String customerID;
     private String selectedItem;
     private String sql = "select CAR_BRAND as Brand, CAR_YEAR as Year, CAR_COLOR as Color, " +
                                 "CAR_FUEL_EFFICIENCY as \"Fuel Eff\", CAR_BODYSTYLE as Bodystyle, CAR_TRANSMISSION as Transmission, "+
@@ -62,7 +79,35 @@ public class UserViewController implements Initializable {
                 System.out.println(tableUser.getSelectionModel().getSelectedItem().get(0));
             }
         });
-    }    
+    }
+
+    public void initData(String customerID) {
+        this.customerID = customerID;
+        lblID.setText("Customer # " + (Integer.valueOf(customerID) + 10000));
+        String check = "select count(PERSON_ID) from CAR where PERSON_ID  = " + customerID;
+        try{
+            ResultSet rs = c.createStatement().executeQuery(check);
+
+            while(rs.next()){
+                if ((rs.getInt(1)) == 1){
+                    tableUser.setDisable(true);
+                    btnReserve.setDisable(true);
+                    lblWarning.setText("You have already reserve a car");
+                }
+                else   
+                    btnCancel.setDisable(true);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void logout (ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartScreen.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }     
     
     public void refreshTable(){
         data = FXCollections.observableArrayList();
@@ -106,5 +151,5 @@ public class UserViewController implements Initializable {
             }catch(Exception e){
                 e.printStackTrace();
             }
-    }   
+    }
 }

@@ -21,7 +21,7 @@ public class FinanceViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //Can't finish in time for due date
     }    
     
 }
