@@ -83,7 +83,7 @@ ENGINE = InnoDB;
 -- Table `CAR_RENTAL`.`CAR`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_RENTAL`.`CAR` (
-  `CAR_ID` INT NOT NULL,
+  `CAR_ID` INT AUTO_INCREMENT NOT NULL,
   `OFFICE_ID` INT NOT NULL,
   `CAR_BRAND` VARCHAR(15) NOT NULL,
   `CAR_YEAR` INT NOT NULL,

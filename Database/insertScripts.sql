@@ -20,12 +20,12 @@ insert into CUSTOMER (PERSON_ID, OFFICE_ID, CUSTOMER_CREDITCARD)
 values
 	('2', '01', '9999');
     
-insert into CAR ( CAR_ID, OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR, 
+insert into CAR (OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR, 
 CAR_FUEL_EFFICIENCY, CAR_BODYSTYLE, CAR_DRIVETYPE, CAR_TRANSMISSION, 
 CAR_ENGINE, CAR_TRIM, CAR_MILEAGE, CAR_RENT, CAR_CONDITION, CAR_AVAILABILITY, PERSON_ID) 
 values 
-	('10001', '01', 'Toyota', '2020', 'black', '39', 'Minivan', 'AWD', 'A', 'v6', '1', '10910', '500', 'G', '0', '2'),
-    ('10002', '01', 'Ford', '2021', 'black', '50', 'Pick up', 'AWD', 'M', 'v6', '1', '5125', '700', 'G', '1', null),
-    ('10003', '01', 'Tesla', '2020', 'white', '10', 'Sedan', 'FWD', 'A', 'electric', '30718', '10910', '300', 'G', '0', null);
+	('01', 'Toyota', '2020', 'black', '39', 'Minivan', 'AWD', 'A', 'v6', '1', '10910', '500', 'G', '0', '2'),
+    ('01', 'Ford', '2021', 'black', '50', 'Pick up', 'AWD', 'M', 'v6', '1', '5125', '700', 'G', '1', null),
+    ('01', 'Tesla', '2020', 'white', '10', 'Sedan', 'FWD', 'A', 'electric', '30718', '10910', '300', 'G', '0', null);
 
 
