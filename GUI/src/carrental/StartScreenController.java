@@ -52,6 +52,7 @@ public class StartScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         DBconnector.connect();
+        btnDebug.setVisible(false);
     }
 
     //adding sign-up button functionality from start screen cause same problem with sign-up button.
@@ -82,7 +83,7 @@ public class StartScreenController implements Initializable {
     }
 
     public void openEmployeeView (ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/EmployeeView.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
