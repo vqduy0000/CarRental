@@ -23,6 +23,9 @@ import java.sql.*;
  */
 public class AddViewController implements Initializable {
 
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private TextField brandTextField;
     @FXML
@@ -48,9 +51,7 @@ public class AddViewController implements Initializable {
     @FXML
     private TextField conditionTextField;
    
-    /**
-     * Initializes the controller class.
-     */
+    
     
 
     @Override
@@ -61,7 +62,11 @@ public class AddViewController implements Initializable {
 
     @FXML
     private void btnClick(ActionEvent event) throws IOException{
-         
+
+        /* The code chunk below is creating strings and integers from the 
+         * texfields that are displayed on the add screen, this converts strings
+         * into ints where needed.
+        */
     String brandCar = brandTextField.getText();
     int year = Integer.parseInt(yearTextField.getText());
     String color = colorTextField.getText();
@@ -78,29 +83,27 @@ public class AddViewController implements Initializable {
     int carAvab = 0;
 
     try{
+
+        //Creates a connection for the database to be reached and confirms that it was successful.
         Connection addViewConnect = DBconnector.connect();
         System.out.println("Connection Successful");
+
+        //Creates a SQL statement field and adds the connection, this allows the statement to be used when the statement is ready to be sent to the database and executed.
         Statement stmt = addViewConnect.createStatement();
         
+        //The string below is used to create a query for mySQL using the variables from above. This allows for editing of the string indepently within this method.
         String queryInsert = "insert into CAR (OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR, CAR_FUEL_EFFICIENCY, CAR_BODYSTYLE, CAR_DRIVETYPE, CAR_TRANSMISSION, CAR_ENGINE, CAR_TRIM, CAR_MILEAGE, CAR_RENT, CAR_CONDITION, CAR_AVAILABILITY, PERSON_ID) values " + 
             "(" + "'" + office_idd + "'" + "," + "'" + brandCar + "'" + "," + "'" + year +  "'" + "," + "'" + color + 
                  "'" + "," +  "'" + mpg  + "'" + "," +"'" + bodystyle + "'" + "," + "'"  + drivetype + "'" + "," + "'" + transmission + "'" + "," + "'" + engine + "'" + "," + 
                     "'" + trim + "'" + "," +  "'" + mileage  + "'" + "," + "'" + rentalCost + "'" + "," + "'" + conditionCar + "'" + "," + 
                         "'" + carAvab + "'" + "," + null + ");";
 
-
-                System.out.println(queryInsert);
+            //This sends the statement that was created earlier and executes in into mySQL with the string above as the parameter. This allows the query to be inserted and updated into the table.
             stmt.executeUpdate(queryInsert);
 
-        //Keeping the below portion as this is the first way that it worked.     Adding addential comment so it notices a change 
-        //String queryInsert = "insert into CAR ( CAR_ID, OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR, CAR_FUEL_EFFICIENCY, CAR_BODYSTYLE, CAR_DRIVETYPE, CAR_TRANSMISSION, CAR_ENGINE, CAR_TRIM, CAR_MILEAGE, CAR_RENT, CAR_CONDITION, CAR_AVAILABILITY, PERSON_ID) values " + 
-        //  "(" + "'" + car_IDD + "'" + "," + "'" + office_idd + "'" + "," + "'" + brandCar + "'" + "," + "'" + year +  "'" + "," + "'" + color + 
-        //     "'" + "," +  "'" + mpg  + "'" + "," +"'" + bodystyle + "'" + "," + "'"  + drivetype + "'" + "," + "'" + transmission + "'" + "," + "'" + engine + "'" + "," + 
-        //     "'" + trim + "'" + "," +  "'" + mileage  + "'" + "," + "'" + rentalCost + "'" + "," + "'" + conditionCar + "'" + "," + 
-        //     "'" + carAvab + "'" + "," + null + ");";
-
         System.out.println("Insertion executed sucessfully.....");
-
+        
+        //Below will catch the errors and output them onto the terminal for troubleshooting any errors that may occur.
     }catch (SQLException exception){
         exception.printStackTrace();
     }catch(Exception exception){
