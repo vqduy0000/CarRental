@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 public class FXMain extends Application {
     
     @Override
+    //create new stage with StartScreen.fxml and display it
     public void start(Stage primaryStage){
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartScreen.fxml"));   

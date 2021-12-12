@@ -64,6 +64,7 @@ public class UserViewController implements Initializable {
 
     private String customerID;
     private String selectedItem;
+    //main sql query which would generate table for customer
     private String sql = "select CAR_BRAND as Brand, CAR_YEAR as Year, CAR_COLOR as Color, " +
                                 "CAR_FUEL_EFFICIENCY as \"Fuel Eff\", CAR_BODYSTYLE as Bodystyle, CAR_TRANSMISSION as Transmission, "+
                                 "CAR_ENGINE as Engine, CAR_TRIM as Trim, CAR_RENT as Cost " +
@@ -74,6 +75,7 @@ public class UserViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         setColumn();
         refreshTable();
+        //this check for user interaction with the table
         tableUser.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 System.out.println(tableUser.getSelectionModel().getSelectedItem().get(0));
@@ -81,27 +83,32 @@ public class UserViewController implements Initializable {
         });
     }
 
+    //take customer ID from StartScreen
     public void initData(String customerID) {
         this.customerID = customerID;
         lblID.setText("Customer # " + (Integer.valueOf(customerID) + 10000));
+        //query to check where customer ID is in the CAR table. Which indicate where they have already reserve a car
         String check = "select count(PERSON_ID) from CAR where PERSON_ID  = " + customerID;
+
+        //disable/enable difference functionality base on whether the customer already reserve a car or not
         try{
             ResultSet rs = c.createStatement().executeQuery(check);
 
             while(rs.next()){
-                if ((rs.getInt(1)) == 1){
-                    tableUser.setDisable(true);
-                    btnReserve.setDisable(true);
-                    lblWarning.setText("You have already reserve a car");
+                if ((rs.getInt(1)) == 1){   //if already reserved a car
+                    tableUser.setDisable(true);     //disable the table
+                    btnReserve.setDisable(true);    //disable reserve button
+                    lblWarning.setText("You have already reserve a car"); //warning message
                 }
-                else   
-                    btnCancel.setDisable(true);
+                else    //if not
+                    btnCancel.setDisable(true);     //disable cancellation button
             }
         }catch(Exception e){
             e.printStackTrace();
         }
     }
     
+    //log out button implementation
     public void logout (ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartScreen.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -109,18 +116,19 @@ public class UserViewController implements Initializable {
         stage.show();
     }     
     
+    //refresh data inside the table
     public void refreshTable(){
         data = FXCollections.observableArrayList();
         try{
             ResultSet rs = c.createStatement().executeQuery(sql);
             
-            while (rs.next()){
+            while (rs.next()){  //go through the result set
                 ObservableList<String> row = FXCollections.observableArrayList();
                 for (int i = 1; i<=rs.getMetaData().getColumnCount(); i++){
                     row.add(rs.getString(i));
                 }
 
-                System.out.println("Row added "+ row);
+                System.out.println("Row added "+ row); //for debugging purpose
                 data.add(row);
             }
 
@@ -131,22 +139,26 @@ public class UserViewController implements Initializable {
         }
     }
 
+    //set columns base on query
     public void setColumn(){
         try{
             ResultSet rs = c.createStatement().executeQuery(sql);
             for(int i=0 ; i<rs.getMetaData().getColumnCount(); i++){
-                final int j = i;                
+                final int j = i;  
+                //create column and get name from query result set              
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
+
+                //set of cells inside the tableview
                 col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList,String>,ObservableValue<String>>(){                    
                     public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {    
-                        if (param.getValue().get(j) == null)
+                        if (param.getValue().get(j) == null) //check whether a value is null --- else it would cause an error
                             return new SimpleObjectProperty("");
                         else                                                                     
-                            return new SimpleStringProperty(param.getValue().get(j).toString());                      
+                            return new SimpleStringProperty(param.getValue().get(j).toString());    //return the actual value                  
                     }                    
                 });  
-                tableUser.getColumns().addAll(col); 
-                System.out.println("Column ["+i+"] ");
+                tableUser.getColumns().addAll(col);
+                System.out.println("Column ["+i+"] "); //print statement for debugging purpose
                 }
             }catch(Exception e){
                 e.printStackTrace();

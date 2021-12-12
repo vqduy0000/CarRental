@@ -52,7 +52,7 @@ public class StartScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         DBconnector.connect();
-        btnDebug.setVisible(false);
+        //btnDebug.setVisible(false);
     }
 
     //adding sign-up button functionality from start screen cause same problem with sign-up button.
