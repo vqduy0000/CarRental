@@ -5,27 +5,28 @@
  */
 package carrental;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableView.TableViewSelectionModel;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import db.DBconnector;
 
@@ -67,6 +68,13 @@ public class EmpViewController implements Initializable {
                             "join OFFICE " +
                             "on OFFICE.OFFICE_ID = CAR.OFFICE_ID";
 
+                            @FXML
+                            private void openAddscreenas(ActionEvent event) throws IOException{
+                                Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(root));
+                                stage.show(); 
+                            }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setColumn();
@@ -81,7 +89,13 @@ public class EmpViewController implements Initializable {
             }
         });
     }    
-    
+    @FXML
+    private void empopenaddView(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show(); }
+        
     public void refreshTable(){
         data = FXCollections.observableArrayList();
         try{
