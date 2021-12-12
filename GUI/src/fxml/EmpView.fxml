@@ -42,7 +42,11 @@
       <Label layoutX="53.0" layoutY="359.0" text="Chosen car:" />
       <Button fx:id="btnRemove" disable="true" layoutX="168.0" layoutY="355.0" mnemonicParsing="false" text="Remove" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <Button id="empAdd" fx:id="btnAdd" onAction="#empopenaddView" layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Add" />
+=======
+      <Button fx:id="btnAdd" onACtion="#openAddscreenas" layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Add" />
+>>>>>>> Stashed changes
 =======
       <Button fx:id="btnAdd" onACtion="#openAddscreenas" layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Add" />
 >>>>>>> Stashed changes
