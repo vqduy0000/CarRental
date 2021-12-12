@@ -92,7 +92,7 @@ public class AddViewController implements Initializable {
                 System.out.println(queryInsert);
             stmt.executeUpdate(queryInsert);
 
-        //Keeping the below portion as this is the first way that it worked.      
+        //Keeping the below portion as this is the first way that it worked.     Adding addential comment so it notices a change 
         //String queryInsert = "insert into CAR ( CAR_ID, OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR, CAR_FUEL_EFFICIENCY, CAR_BODYSTYLE, CAR_DRIVETYPE, CAR_TRANSMISSION, CAR_ENGINE, CAR_TRIM, CAR_MILEAGE, CAR_RENT, CAR_CONDITION, CAR_AVAILABILITY, PERSON_ID) values " + 
         //  "(" + "'" + car_IDD + "'" + "," + "'" + office_idd + "'" + "," + "'" + brandCar + "'" + "," + "'" + year +  "'" + "," + "'" + color + 
         //     "'" + "," +  "'" + mpg  + "'" + "," +"'" + bodystyle + "'" + "," + "'"  + drivetype + "'" + "," + "'" + transmission + "'" + "," + "'" + engine + "'" + "," + 
