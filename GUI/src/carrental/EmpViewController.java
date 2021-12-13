@@ -25,8 +25,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -52,6 +54,10 @@ public class EmpViewController implements Initializable {
     private Button btnUpdate;
     @FXML
     private Button btnAdd;
+    @FXML
+    private TextField txtMileage;
+    @FXML
+    private TextField txtCondition;
 
     @FXML
     private TableView<ObservableList> tableEmp;
@@ -59,6 +65,8 @@ public class EmpViewController implements Initializable {
     Connection c = DBconnector.connect();
 
     private String selectedItem;
+    private String currentCon;
+    private String currentMile;
     private String sql = "select CAR_ID as ID, CAR_BRAND as Brand, CAR_YEAR as Year, " +
                                 "CAR_MILEAGE as Mileage, CAR_CONDITION as 'Condition', " + 
                                 "CAR_AVAILABILITY as Availability, " +
@@ -89,6 +97,8 @@ public class EmpViewController implements Initializable {
         tableEmp.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 selectedItem = (String) tableEmp.getSelectionModel().getSelectedItem().get(0);
+                currentCon = (String) tableEmp.getSelectionModel().getSelectedItem().get(4);
+                currentMile = (String) tableEmp.getSelectionModel().getSelectedItem().get(3);
                 lblChosen.setText(selectedItem);
                 btnRemove.setDisable(false);
                 btnUpdate.setDisable(false);
@@ -165,4 +175,41 @@ public class EmpViewController implements Initializable {
             exception.printStackTrace();
                    }
     }
+
+    @FXML
+    private void btnUpdateAction(ActionEvent event)throws IOException{
+        
+        String mileage = txtMileage.getText();
+        try{
+        Connection c = DBconnector.connect();
+        System.out.println("Connection Successfull");
+
+        PreparedStatement stmtMile = c.prepareStatement("update CAR set CAR_MILEAGE = ? where CAR_ID = ?");
+        PreparedStatement stmtCon = c.prepareStatement("update CAR set CAR_CONDITION = ?, CAR_AVAILABILITY = ? where CAR_ID = ?");
+        if (mileage != "" && Integer.valueOf(mileage) > Integer.valueOf(currentMile)){
+            stmtMile.setString(1, mileage);
+            stmtMile.setString(2, selectedItem);
+            stmtMile.executeUpdate();
+         }
+        if (!(txtCondition.getText().equals(currentCon)) && !(txtCondition.getText().equals(""))){
+            stmtCon.setString(1, txtCondition.getText());
+            stmtCon.setString(3, selectedItem);
+            if(txtCondition.getText().equals("G"))
+                stmtCon.setString(2, "1");
+            else
+                stmtCon.setString(2, "0");
+            stmtCon.executeUpdate();
+        }
+        //c.createStatement().executeUpdate(query);
+        refreshTable();
+       
+     }catch (SQLException  e) {
+        e.printStackTrace();
+        }catch(Exception exception){
+        exception.printStackTrace();
+
+    }
+
+
+}
 }
