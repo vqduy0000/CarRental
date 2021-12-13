@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.AddViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.AddViewController">
    <children>
       <Label layoutX="24.0" layoutY="42.0" text="Office location" />
       <MenuButton id="locationMenuButton" layoutX="113.0" layoutY="38.0" mnemonicParsing="false" text="Street, City, State">
@@ -16,18 +16,18 @@
             <MenuItem mnemonicParsing="false" text="Action 2" />
          </items>
       </MenuButton>
-      <Button id="addScreenAddBtn" layoutX="25.0" layoutY="227.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="25.0" prefWidth="86.0" text="Add" />
       <TextField id="brandTextField" fx:id="brandTextField" layoutX="25.0" layoutY="80.0" prefHeight="25.0" prefWidth="123.0" promptText="Brand" />
       <TextField id="yearTextField" fx:id="yearTextField" layoutX="166.0" layoutY="80.0" prefHeight="25.0" prefWidth="51.0" promptText="Year" />
       <TextField id="colorTextField" fx:id="colorTextField" layoutX="225.0" layoutY="80.0" prefHeight="25.0" prefWidth="51.0" promptText="Color" />
-      <TextField id="mpgTextField" fx:id="mpgTextField" layoutX="25.0" layoutY="154.0" prefHeight="25.0" prefWidth="105.0" promptText="Fuel efficiency" />
       <TextField id="bodystyleTextField" fx:id="bodystyleTextField" layoutX="284.0" layoutY="80.0" prefHeight="25.0" prefWidth="86.0" promptText="Body style" />
+      <TextField id="conditionTextField" fx:id="conditionTextField" layoutX="381.0" layoutY="80.0" prefHeight="25.0" prefWidth="77.0" promptText="Condition" />
       <TextField id="drivetypeTextField" fx:id="drivetypeTextField" layoutX="465.0" layoutY="80.0" prefHeight="25.0" prefWidth="86.0" promptText="Drive type" />
       <TextField id="transTextField" fx:id="transTextField" layoutX="25.0" layoutY="117.0" prefHeight="25.0" prefWidth="105.0" promptText="Transmission" />
       <TextField id="engineTextField" fx:id="engineTextField" layoutX="143.0" layoutY="117.0" prefHeight="25.0" prefWidth="63.0" promptText="Engine" />
       <TextField id="trimTextField" fx:id="trimTextField" layoutX="213.0" layoutY="117.0" prefHeight="25.0" prefWidth="63.0" promptText="Trims" />
+      <TextField id="mpgTextField" fx:id="mpgTextField" layoutX="25.0" layoutY="154.0" prefHeight="25.0" prefWidth="105.0" promptText="Fuel efficiency" />
       <TextField id="milesTextField" fx:id="milesTextField" layoutX="143.0" layoutY="154.0" promptText="Mileage" />
       <TextField id="rentalcostTextField" fx:id="rentalcostTextField" layoutX="25.0" layoutY="188.0" promptText="Rent per day" />
-      <TextField id="conditionTextField" fx:id="conditionTextField" layoutX="381.0" layoutY="80.0" prefHeight="25.0" prefWidth="77.0" promptText="Condition" />
+      <Button id="addScreenAddBtn" layoutX="25.0" layoutY="227.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="25.0" prefWidth="86.0" text="Add" />
    </children>
 </AnchorPane>
