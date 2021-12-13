@@ -25,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
@@ -84,6 +85,7 @@ public class EmpViewController implements Initializable {
         tableEmp.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 selectedItem = (String) tableEmp.getSelectionModel().getSelectedItem().get(0);
+                
                 lblChosen.setText(selectedItem);
                 btnRemove.setDisable(false);
                 btnUpdate.setDisable(false);
@@ -158,4 +160,41 @@ public class EmpViewController implements Initializable {
             exception.printStackTrace();
                    }
     }
+
+    @FXML
+    private void btnUpdateAction(ActionEvent event)throws IOException{
+        
+        String mileage = txt_mileage.getText();
+        try{
+        Connection c = DBconnector.connect();
+        System.out.println("Connection Successfull");
+       String query = "UPDATE CAR SET CAR_CONDITION=?" + 
+        "SELECT CASE" +
+         "WHEN CAR_CONDITION = 'G' or CAR_CONDITION = 'NG' "+
+         "THEN 1" +
+         "ELSE 0" +
+         "End as CAR_CONDITION,*" +
+         "FROM CAR";
+
+         String query1 = "update Car"
+         if (mileage.getText<> "" && Integer.valueOf(mileage.getString)> currentValue) ==
+         "set CAR_MILEAGE" + mileage.getString;
+         
+        PreparedStatement stmt = c.prepareStatement(query);
+        stmt.setString(1, selectedItem);
+        int rowCount = stmt.executeUpdate();
+        System.out.println("Update Sucessful");
+        
+       refreshTable();
+
+       
+     }catch (SQLException  e) {
+        e.printStackTrace();
+        }catch(Exception exception){
+        exception.printStackTrace();
+
+    }
+
+
+}
 }
