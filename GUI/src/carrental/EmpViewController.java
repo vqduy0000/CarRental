@@ -129,7 +129,7 @@ public class EmpViewController implements Initializable {
     }
 
     @FXML
-    private void btnRefresh(ActionEvent event) throws IOException{
+    private void onClickRefresh(ActionEvent event) throws IOException{
         refreshTable();
     }
         
