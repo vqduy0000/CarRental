@@ -12,9 +12,9 @@
    <children>
       <Button fx:id="btnReserve" disable="true" layoutX="39.0" layoutY="358.0" mnemonicParsing="false" onAction="#reservation" prefHeight="25.0" prefWidth="111.0" text="Reserve" />
       <TableView fx:id="tableUser" layoutX="39.0" layoutY="47.0" prefHeight="300.0" prefWidth="520.0" />
-      <Label fx:id="lblID" alignment="CENTER" layoutX="234.0" layoutY="22.0" prefHeight="17.0" prefWidth="131.0">
+      <Label fx:id="lblID" alignment="CENTER" layoutX="360.0" layoutY="22.0" prefHeight="17.0" prefWidth="131.0">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Label>
       <Label fx:id="lblWarning" alignment="CENTER" contentDisplay="CENTER" layoutX="289.0" layoutY="362.0" prefHeight="17.0" prefWidth="273.0" textAlignment="CENTER" textFill="#a10101">
          <font>
@@ -23,10 +23,11 @@
       </Label>
       <Button fx:id="btnCancel" disable="true" layoutX="156.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancellation" prefHeight="25.0" prefWidth="123.0" text="Cancel Reservation" />
       <Button fx:id="btnLogout" layoutX="502.0" layoutY="18.0" mnemonicParsing="false" onAction="#logout" text="Log out" />
-      <ChoiceBox fx:id="cb" layoutX="39.0" layoutY="18.0" prefWidth="150.0">
+      <ChoiceBox fx:id="cb" layoutX="125.0" layoutY="18.0" prefWidth="150.0">
          <tooltip>
             <Tooltip text="Select an office location" />
          </tooltip>
       </ChoiceBox>
+      <Label layoutX="39.0" layoutY="22.0" text="Office Location" />
    </children>
 </AnchorPane>

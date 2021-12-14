@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.AddViewController">
    <children>
       <Label layoutX="24.0" layoutY="42.0" text="Office location" />
-      <MenuButton id="locationMenuButton" layoutX="113.0" layoutY="38.0" mnemonicParsing="false" text="Street, City, State">
-         <items>
-            <MenuItem mnemonicParsing="false" text="98701 Major Street, Detroit, MI" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
       <TextField id="brandTextField" fx:id="brandTextField" layoutX="25.0" layoutY="80.0" prefHeight="25.0" prefWidth="123.0" promptText="Brand" />
       <TextField id="yearTextField" fx:id="yearTextField" layoutX="166.0" layoutY="80.0" prefHeight="25.0" prefWidth="51.0" promptText="Year" />
       <TextField id="colorTextField" fx:id="colorTextField" layoutX="225.0" layoutY="80.0" prefHeight="25.0" prefWidth="51.0" promptText="Color" />
@@ -29,5 +22,6 @@
       <TextField id="milesTextField" fx:id="milesTextField" layoutX="143.0" layoutY="154.0" promptText="Mileage" />
       <TextField id="rentalcostTextField" fx:id="rentalcostTextField" layoutX="25.0" layoutY="188.0" promptText="Rent per day" />
       <Button id="addScreenAddBtn" layoutX="25.0" layoutY="227.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="25.0" prefWidth="86.0" text="Add" />
+      <ChoiceBox fx:id="cb" layoutX="111.0" layoutY="38.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

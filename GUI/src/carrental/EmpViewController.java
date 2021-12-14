@@ -21,11 +21,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -55,6 +55,10 @@ public class EmpViewController implements Initializable {
     @FXML
     private Button btnAdd;
     @FXML
+    private Button btnLogout;
+    @FXML
+    private Button btnRefresh;
+    @FXML
     private TextField txtMileage;
     @FXML
     private TextField txtCondition;
@@ -79,13 +83,14 @@ public class EmpViewController implements Initializable {
                             "on OFFICE.OFFICE_ID = CAR.OFFICE_ID " +
                             "order by ID asc";
 
-                            @FXML
-                            private void openAddscreenas(ActionEvent event) throws IOException{
-                                Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));
-                                Stage stage = new Stage();
-                                stage.setScene(new Scene(root));
-                                stage.show(); 
-                            }
+    @FXML
+    private void openAddscreenas(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setColumn();
@@ -106,6 +111,13 @@ public class EmpViewController implements Initializable {
             }
         });
     } 
+
+    public void logout (ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartScreen.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     
     //open addView screen
     @FXML
@@ -113,7 +125,13 @@ public class EmpViewController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddView.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.show(); }
+        stage.show(); 
+    }
+
+    @FXML
+    private void btnRefresh(ActionEvent event) throws IOException{
+        refreshTable();
+    }
         
     public void refreshTable(){
         data = FXCollections.observableArrayList();
@@ -165,13 +183,13 @@ public class EmpViewController implements Initializable {
             System.out.println("Connection Successfull");
             String query = "DELETE FROM CAR WHERE CAR_ID = ?";
             PreparedStatement stmt = c.prepareStatement(query);
-           stmt.setString(1, selectedItem);
-           int rowCount = stmt.executeUpdate();
-           System.out.println("Deletion sucessful");
-           refreshTable();
-            } catch (SQLException  e) {
+            stmt.setString(1, selectedItem);
+            int rowCount = stmt.executeUpdate();
+            System.out.println("Deletion sucessful");
+            refreshTable();
+        }catch (SQLException  e) {
             e.printStackTrace();
-            }catch(Exception exception){
+        }catch(Exception exception){
             exception.printStackTrace();
                    }
     }
@@ -200,7 +218,6 @@ public class EmpViewController implements Initializable {
                 stmtCon.setString(2, "0");
             stmtCon.executeUpdate();
         }
-        //c.createStatement().executeUpdate(query);
         refreshTable();
        
      }catch (SQLException  e) {

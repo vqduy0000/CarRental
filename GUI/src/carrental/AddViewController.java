@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import db.DBconnector;
 import java.io.IOException;
@@ -50,14 +51,20 @@ public class AddViewController implements Initializable {
     private TextField rentalcostTextField;
     @FXML
     private TextField conditionTextField;
-   
-    
-    
 
+    @FXML  
+    private ChoiceBox cb;
+
+    private String officeID;
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO       
-        DBconnector.connect();
+        createChoiceBox();
+        cb.setOnAction((event) -> {
+            int selectedIndex = cb.getSelectionModel().getSelectedIndex(); //get the index of the office
+            officeID = "" + (selectedIndex + 1);                           //since index start at 0, +1 would result in the office id
+            System.out.println("   ChoiceBox.getValue(): " + cb.getValue());
+        });
     }
 
     @FXML
@@ -79,8 +86,7 @@ public class AddViewController implements Initializable {
     int mileage = Integer.parseInt(milesTextField.getText());
     int rentalCost = Integer.parseInt(rentalcostTextField.getText());
     String conditionCar = conditionTextField.getText();
-    int office_idd = 01;
-    int carAvab = 0;
+    int carAvab = 1;
 
     try{
 
@@ -93,7 +99,7 @@ public class AddViewController implements Initializable {
         
         //The string below is used to create a query for mySQL using the variables from above. This allows for editing of the string indepently within this method.
         String queryInsert = "insert into CAR (OFFICE_ID, CAR_BRAND, CAR_YEAR, CAR_COLOR, CAR_FUEL_EFFICIENCY, CAR_BODYSTYLE, CAR_DRIVETYPE, CAR_TRANSMISSION, CAR_ENGINE, CAR_TRIM, CAR_MILEAGE, CAR_RENT, CAR_CONDITION, CAR_AVAILABILITY, PERSON_ID) values " + 
-            "(" + "'" + office_idd + "'" + "," + "'" + brandCar + "'" + "," + "'" + year +  "'" + "," + "'" + color + 
+            "(" + "'" + officeID + "'" + "," + "'" + brandCar + "'" + "," + "'" + year +  "'" + "," + "'" + color + 
                  "'" + "," +  "'" + mpg  + "'" + "," +"'" + bodystyle + "'" + "," + "'"  + drivetype + "'" + "," + "'" + transmission + "'" + "," + "'" + engine + "'" + "," + 
                     "'" + trim + "'" + "," +  "'" + mileage  + "'" + "," + "'" + rentalCost + "'" + "," + "'" + conditionCar + "'" + "," + 
                         "'" + carAvab + "'" + "," + null + ");";
@@ -111,6 +117,21 @@ public class AddViewController implements Initializable {
     }
 
 
+    }
+
+    public void createChoiceBox(){
+        try{
+            Connection c = DBconnector.connect();
+            String officeQuery = "select OFFICE_STREET, OFFICE_CITY, OFFICE_STATE from OFFICE";
+            ResultSet rs = c.createStatement().executeQuery(officeQuery);
+            String choice;
+            while(rs.next()){
+                choice = rs.getString(1) +", "+ rs.getString(2) + ", " + rs.getString(3);
+                cb.getItems().add(choice);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
 }

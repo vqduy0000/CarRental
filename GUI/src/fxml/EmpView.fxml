@@ -9,16 +9,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carrental.EmpViewController">
    <children>
-      <TextField fx:id="txtCondition" layoutX="445.0" layoutY="355.0" prefHeight="25.0" prefWidth="71.0" promptText="Condition" />
-      <TableView fx:id="tableEmp" layoutX="45.0" layoutY="32.0" prefHeight="316.0" prefWidth="510.0" />
+      <TextField fx:id="txtCondition" layoutX="371.0" layoutY="355.0" prefHeight="25.0" prefWidth="71.0" promptText="Condition" />
+      <TableView fx:id="tableEmp" layoutX="45.0" layoutY="55.0" prefHeight="293.0" prefWidth="510.0" />
       <Label layoutX="53.0" layoutY="359.0" text="Chosen car:" />
       <Button id="btnRemove" fx:id="btnRemove" disable="true" layoutX="168.0" layoutY="355.0" mnemonicParsing="false" onAction="#btnRemoveAction" text="Remove" />
-      <Button id="empAdd" fx:id="btnAdd" layoutX="300.0" layoutY="355.0" mnemonicParsing="false" onAction="#empopenaddView" text="Add" />
+      <Button id="empAdd" fx:id="btnAdd" layoutX="517.0" layoutY="355.0" mnemonicParsing="false" onAction="#empopenaddView" text="Add" />
       <Button id="btnUpdate" fx:id="btnUpdate" disable="true" layoutX="234.0" layoutY="355.0" mnemonicParsing="false" onAction="#btnUpdateAction" text="Update" />
       <Label fx:id="lblChosen" layoutX="120.0" layoutY="355.0" prefHeight="25.0" prefWidth="45.0" text="none">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextField fx:id="txtMileage" layoutX="357.0" layoutY="355.0" prefHeight="25.0" prefWidth="71.0" promptText="Mileage" />
+      <TextField fx:id="txtMileage" layoutX="295.0" layoutY="355.0" prefHeight="25.0" prefWidth="71.0" promptText="Mileage" />
+      <Button fx:id="btnLogout" layoutX="498.0" layoutY="24.0" mnemonicParsing="false" onAction="#logout" text="Log out" />
+      <Button fx:id="btnRefresh" layoutX="452.0" layoutY="355.0" mnemonicParsing="false" text="Refresh" />
    </children>
 </AnchorPane>
